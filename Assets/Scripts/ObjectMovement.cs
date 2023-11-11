@@ -7,12 +7,13 @@ public class ObjectMovement : MonoBehaviour
     // Start is called before the first frame update
     public float movementSpeed = 5f;
 
+    public Vector3 coordinate;
     // Update is called once per frame
     
     void Update()
     {
         // Example: Move the object towards a specific coordinate (5, 0, 5)
-        MoveTowardsCoordinate(new Vector3(10, 10, 5));
+        MoveTowardsCoordinate(coordinate);
     }
 
     void MoveTowardsCoordinate(Vector3 targetPosition)
@@ -29,7 +30,7 @@ public class ObjectMovement : MonoBehaviour
 
         // Rotate the object to face the target position
         Quaternion toRotation = Quaternion.LookRotation(direction.normalized);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * 360f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * movementSpeed * 10f);
 
         // Translate the object towards the target position
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
