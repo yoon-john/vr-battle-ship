@@ -14,7 +14,7 @@ public class Ship : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -25,11 +25,30 @@ public class Ship : MonoBehaviour
 
     void moveShip(Vector3 destination)
     {
-
+        // add Eugene's moveShip implementation later.
     }
 
-    void attackTarget(Ship target)
+    public void attackTarget(GameObject target)
     {
-            
+        Debug.Log("attack");
+        if (target.CompareTag("Ship")) {
+                Ship script = target.GetComponent<Ship>();
+                script.loseHealth(damage);
+            }
+    }
+
+    public void loseHealth(int damage)
+    {
+        Debug.Log("lose Health");
+        currHealth -= damage;
+        if (currHealth <= 0) {
+            Die();
+        }
+    }
+
+    void Die() 
+    {
+        Debug.Log("dead");
+        GameObject.Destroy(gameObject);
     }
 }

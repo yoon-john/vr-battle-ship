@@ -4,9 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - user
-  - enemy
-  - ship
+  - Ship
   layers:
   - Default
   - TransparentFX
