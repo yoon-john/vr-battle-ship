@@ -166,7 +166,8 @@ MonoBehaviour:
   - {fileID: 585984054}
   spawnTime: 0
   userShip: {fileID: 1415442758324778, guid: 278694c7b384441d6ab12be5a9123e41, type: 3}
-  enemyShip: {fileID: 1415442758324778, guid: 278694c7b384441d6ab12be5a9123e41, type: 3}
+  enemyShip: {fileID: 919132149155446097, guid: 41cffbb832d8d48fb8e820286e7d7053,
+    type: 3}
   userShipList:
   - {fileID: 1404566017}
   - {fileID: 0}
