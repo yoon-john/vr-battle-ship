@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestField.unity
     guid: a1bcdfcf8a2814a39a806554fca1a2b5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestHand.unity
     guid: 8e2b98eb732404a578c3dfd3b06824a6
+  - enabled: 1
+    path: Assets/Scenes/TestGrab.unity
+    guid: 66aecf29741a748fcbaaf184923e8302
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 61268eae3150641168a0037805389dbe,
       type: 2}
