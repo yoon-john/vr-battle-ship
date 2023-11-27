@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour
 {
-     public float movementSpeed = 5f;
+    public float movementSpeed = 5f;
     public Vector3 coordinate;
     public float rotationSpeed = 5f;
 
     private bool status = true;
 
+    private bool attack = false; 
+
     void Update()
     {
-        if (status)
+        if (CheckMoveRequired(coordinate))
         {
             MoveTowardsCoordinate(coordinate);
         }
+        if (attack)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    bool CheckMoveRequired(Vector3 targetPosition)
+    {
+        Vector3 direction = targetPosition - transform.position;
+        if (direction.magnitude >= 0.1f)
+        {
+            attack = false; 
+            return true;
+        }
+        return false; 
     }
 
     void MoveTowardsCoordinate(Vector3 targetPosition)
@@ -33,16 +51,19 @@ public class ObjectMovement : MonoBehaviour
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerStay(Collider other)
+    Vector3 directionToTarget; 
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("ship"))
         {
             status = false;
-            Vector3 directionToTarget = other.transform.position - transform.position;
+            coordinate = transform.position; 
+
+            directionToTarget = other.transform.position - transform.position;
             directionToTarget.y = 0f;
 
-            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            attack = true; 
         }
     }
 
