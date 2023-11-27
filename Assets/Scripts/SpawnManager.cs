@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public Transform[] spawnLocations;
+    public Transform[] userSpawnLocations;
+    public Transform[] enemySpawnLocations;
     public float spawnTime;
-    public GameObject shipPrefab;
-    public GameObject[] shipList = new GameObject[5];
+    public GameObject userShip;
+    public GameObject enemyShip;
+    public GameObject[] userShipList = new GameObject[5];
+    public GameObject[] enemyShipList = new GameObject[5];
 
-    public void Spawn(int i)
+    public void UserSpawn(int i)
     {
-        Transform spawn = spawnLocations[i];
-        GameObject ship = Instantiate(shipPrefab, spawn.position, spawn.rotation);
-        shipList[i] = ship;
+        Transform spawn = userSpawnLocations[i];
+        GameObject ship = Instantiate(userShip, spawn.position, spawn.rotation);
+        userShipList[i] = ship;
+    }
+
+    public void EnemySpawn(int i)
+    {
+        Transform spawn = enemySpawnLocations[i];
+        GameObject ship = Instantiate(enemyShip, spawn.position, spawn.rotation);
+        enemyShipList[i] = ship;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Spawn(0);
-        Spawn(1);
-        shipList[0].GetComponent<Ship>().attackTarget(shipList[1]);
+        for (int i = 0; i < 5; i++) {
+            UserSpawn(i);
+            EnemySpawn(i);
+        }
     }
 
     // Update is called once per frame
