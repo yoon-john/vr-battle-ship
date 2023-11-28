@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
         Transform spawn = userSpawnLocations[i];
         GameObject ship = Instantiate(userShip, spawn.position, spawn.rotation);
         userShipList[i] = ship;
+
+        ship.GetComponent<ObjectMovement>().coordinate = ship.transform.position; 
     }
 
     public void EnemySpawn(int i)
@@ -24,6 +26,8 @@ public class SpawnManager : MonoBehaviour
         Transform spawn = enemySpawnLocations[i];
         GameObject ship = Instantiate(enemyShip, spawn.position, spawn.rotation);
         enemyShipList[i] = ship;
+
+        ship.GetComponent<ObjectMovement>().coordinate = ship.transform.position;
     }
 
     // Start is called before the first frame update

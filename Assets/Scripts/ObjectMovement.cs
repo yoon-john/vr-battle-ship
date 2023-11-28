@@ -51,13 +51,16 @@ public class ObjectMovement : MonoBehaviour
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 
-    Vector3 directionToTarget; 
+    Vector3 directionToTarget;
+
+    GameObject targetShip = null; 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ship"))
+        if (targetShip == null && IsOpponentShip(other))
         {
             status = false;
+            targetShip = other.gameObject; 
             coordinate = transform.position; 
 
             directionToTarget = other.transform.position - transform.position;
@@ -70,9 +73,23 @@ public class ObjectMovement : MonoBehaviour
     // You might want to add OnTriggerExit to set status back to true when the ship exits the radius
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("ship"))
+        if (targetShip == other.gameObject)
         {
             status = true;
+            targetShip = null; 
         }
+    }
+
+    private bool IsOpponentShip(Collider other)
+    {
+        if (gameObject.tag == "ship" && other.tag == "enemy")
+        {
+            return true; 
+        }
+        else if (gameObject.tag == "enemy" && other.tag == "ship")
+        {
+            return true; 
+        }
+        return false; 
     }
 }

@@ -25932,6 +25932,7 @@ GameObject:
   - component: {fileID: 481699097083126758}
   - component: {fileID: 2105465213371539317}
   - component: {fileID: 3285018498274617260}
+  - component: {fileID: -8534982314092485313}
   m_Layer: 0
   m_Name: userShip
   m_TagString: ship
@@ -26022,6 +26023,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8534982314092485313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972888695923978943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e79c112cbd34d20ba82a51821e3a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  range: 0
+  speed: 5
+  damage: 10
 --- !u!1 &8973842943748475656
 GameObject:
   m_ObjectHideFlags: 0
