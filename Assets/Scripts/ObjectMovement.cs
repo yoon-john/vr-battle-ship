@@ -10,7 +10,14 @@ public class ObjectMovement : MonoBehaviour
 
     private bool status = true;
 
-    private bool attack = false; 
+    private bool attack = false;
+
+    private Ship m_ship;
+
+    private void Start()
+    {
+        m_ship = GetComponent<Ship>(); 
+    }
 
     void Update()
     {
@@ -59,8 +66,11 @@ public class ObjectMovement : MonoBehaviour
     {
         if (targetShip == null && IsOpponentShip(other))
         {
+
             status = false;
-            targetShip = other.gameObject; 
+            targetShip = other.gameObject;
+            m_ship.StartAttack(targetShip);
+
             coordinate = transform.position; 
 
             directionToTarget = other.transform.position - transform.position;
@@ -76,7 +86,8 @@ public class ObjectMovement : MonoBehaviour
         if (targetShip == other.gameObject)
         {
             status = true;
-            targetShip = null; 
+            targetShip = null;
+            m_ship.StopAttack();
         }
     }
 

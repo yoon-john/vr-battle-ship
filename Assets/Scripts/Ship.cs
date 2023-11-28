@@ -17,10 +17,19 @@ public class Ship : MonoBehaviour
         currHealth = maxHealth;
     }
 
+    GameObject m_attackTarget;
+
+    float timeUntilNextAttack = 0f; 
+    float attackCD = 1f; 
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (attacking && Time.time > timeUntilNextAttack)
+        {
+            Attack(m_attackTarget); 
+            timeUntilNextAttack = Time.time + attackCD; 
+        }
     }
 
     void moveShip(Vector3 destination)
@@ -28,19 +37,37 @@ public class Ship : MonoBehaviour
         // add Eugene's moveShip implementation later.
     }
 
-    public void attackTarget(GameObject target)
+    bool attacking = false; 
+
+    public void StartAttack(GameObject target)
     {
-        Debug.Log("attack");
-        if (target.CompareTag("Ship")) {
-                Ship script = target.GetComponent<Ship>();
-                script.loseHealth(damage);
-            }
+        attacking = true;
+        m_attackTarget = target; 
+    }
+
+    public void StopAttack()
+    {
+        attacking = false; 
+    }
+
+    public GameObject laserPrefab;
+
+    private void Attack(GameObject target)
+    {
+        GameObject spawnedLaser = Instantiate(laserPrefab, transform.position + transform.TransformDirection(Vector3.forward), transform.rotation);
+        spawnedLaser.transform.Rotate(new Vector3(90f, 0, 0));
+        spawnedLaser.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 10);
+
+        /*
+        Ship script = target.GetComponent<Ship>();
+        script.loseHealth(damage);
+        */
     }
 
     public void loseHealth(int damage)
     {
-        Debug.Log("lose Health");
         currHealth -= damage;
+        Debug.Log("lose Health: " + currHealth);
         if (currHealth <= 0) {
             Die();
         }

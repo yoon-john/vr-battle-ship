@@ -115,6 +115,8 @@ MonoBehaviour:
   range: 0
   speed: 5
   damage: 10
+  laserPrefab: {fileID: 935854628499675333, guid: 34db6a69e39a54ae8bb12b8c96b14a13,
+    type: 3}
 --- !u!1001 &7939556739436885848
 PrefabInstance:
   m_ObjectHideFlags: 0
