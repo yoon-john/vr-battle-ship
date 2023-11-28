@@ -9,12 +9,13 @@ public class Ship : MonoBehaviour
     public int range;
     public int speed;
     public int damage;
-
+    public SpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
     {
         currHealth = maxHealth;
+        spawnManager = FindObjectOfType<SpawnManager>();
     }
 
     GameObject m_attackTarget;
@@ -75,6 +76,16 @@ public class Ship : MonoBehaviour
 
     void Die() 
     {
+        if (this.tag == "enemy")
+        {
+            spawnManager.enemyShipNum--;
+            Debug.Log(spawnManager.enemyShipNum);
+        }
+        else if (this.tag == "ship")
+        {
+            spawnManager.userShipNum--;
+            Debug.Log(spawnManager.userShipNum);
+        }
         Debug.Log("dead");
         GameObject.Destroy(gameObject);
     }

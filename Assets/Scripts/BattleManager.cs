@@ -49,12 +49,4 @@ public class BattleManager : MonoBehaviour
             enemyship_count++; 
         }
     }
-
-    private void CheckWin()
-    {
-        if (usership_count == 0 || enemyship_count == 0)
-        {
-            Debug.Log("Game ended."); 
-        }
-    }
 }

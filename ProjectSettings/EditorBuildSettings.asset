@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestGrab.unity
     guid: 66aecf29741a748fcbaaf184923e8302
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: dba10c392bb524de09b5b5b3c1f1bef6
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 9711972fd9be2438198a0f62b55c55bf
+  - enabled: 1
+    path: Assets/Scenes/Bridge.unity
+    guid: 45665c6f380404b11950f2f317be70b1
+  - enabled: 1
+    path: Assets/Scenes/TestSpawn.unity
+    guid: b88c25c9a891a4350a1ae24b952cc68e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 61268eae3150641168a0037805389dbe,
       type: 2}
