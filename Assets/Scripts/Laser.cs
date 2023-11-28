@@ -22,7 +22,7 @@ public class Laser : MonoBehaviour
     {
         if (other.tag == laserHittableTag)
         {
-            other.GetComponent<Ship>().loseHealth(10);
+            other.transform.parent.GetComponent<Ship>().loseHealth(10);
 
             Destroy(gameObject); 
         }
