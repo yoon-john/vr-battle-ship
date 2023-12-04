@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - enemyCollider
   - shipCollider
+  - shipSelectArea
   layers:
   - Default
   - TransparentFX
