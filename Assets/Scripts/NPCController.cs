@@ -28,7 +28,8 @@ public class NPCController : MonoBehaviour
     ObjectMovement m_objectMovement;
     Ship m_ship;
 
-    GameObject closestShip = null; 
+    [HideInInspector]
+    public GameObject closestShip = null; 
 
     private void Start()
     {

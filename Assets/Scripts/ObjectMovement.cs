@@ -70,7 +70,6 @@ public class ObjectMovement : MonoBehaviour
     {
         if (targetShip == null && IsOpponentShip(other))
         {
-
             targetShip = other.gameObject;
             m_ship.StartAttack(targetShip);
 
@@ -96,9 +95,13 @@ public class ObjectMovement : MonoBehaviour
         {
             return true; 
         }
-        else if (gameObject.tag == "enemy" && other.tag == "ship")
+        else if (gameObject.tag == "enemy" && other.tag == "ship") 
         {
-            return true; 
+            GameObject closestShip = GetComponent<NPCController>().closestShip;
+            if (ReferenceEquals(closestShip, other.gameObject)) //Extra change so ship doesn't retarget
+            {
+                return true; 
+            }
         }
         return false; 
     }

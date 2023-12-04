@@ -33,7 +33,7 @@ public class Highlight : MonoBehaviour
         }
         else
         {
-            selectDisplay.material.color = new Color(0.65f, 0.8f, 1f, 0f);
+            selectDisplay.material.color = new Color(0.65f, 0.8f, 1f, 0.1f);
             selected = false;
         }
     }
