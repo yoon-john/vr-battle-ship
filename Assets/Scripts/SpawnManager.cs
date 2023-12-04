@@ -8,13 +8,18 @@ public class SpawnManager : MonoBehaviour
 {
     public Transform[] userSpawnLocations;
     public Transform[] enemySpawnLocations;
-    public float spawnTime;
+
     public GameObject userShip;
     public GameObject enemyShip;
+
+    [HideInInspector]
     public GameObject[] userShipList = new GameObject[5];
+    [HideInInspector]
     public GameObject[] enemyShipList = new GameObject[5];
 
+    [HideInInspector]
     public int userShipNum;
+    [HideInInspector]
     public int enemyShipNum;
 
     public void UserSpawn(int i)
@@ -57,11 +62,11 @@ public class SpawnManager : MonoBehaviour
         if (userShipNum == 0 || enemyShipNum == 0)
         {
             Debug.Log("Game ended."); 
-            if (userShipNum == 0) {
+            if (enemyShipNum == 0) {
                 Debug.Log("User Win"); 
                 SceneManager.LoadScene("WinScene");
             }
-            else if (enemyShipNum == 0) {
+            else if (userShipNum == 0) {
                 Debug.Log("User Lose"); 
                 SceneManager.LoadScene("LoseScene");
             }

@@ -8,8 +8,6 @@ public class ObjectMovement : MonoBehaviour
     public Vector3 coordinate;
     public float rotationSpeed = 5f;
 
-    private bool status = true;
-
     private bool attack = false;
 
     private Ship m_ship;
@@ -25,10 +23,16 @@ public class ObjectMovement : MonoBehaviour
         {
             MoveTowardsCoordinate(coordinate);
         }
-        if (attack)
+        if (attack && targetShip != null)
         {
+            directionToTarget = targetShip.transform.position - transform.position;
+
             Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+        else if (attack && targetShip == null)
+        {
+            m_ship.StopAttack();
         }
     }
 
@@ -62,19 +66,15 @@ public class ObjectMovement : MonoBehaviour
 
     GameObject targetShip = null; 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (targetShip == null && IsOpponentShip(other))
         {
 
-            status = false;
             targetShip = other.gameObject;
             m_ship.StartAttack(targetShip);
 
             coordinate = transform.position; 
-
-            directionToTarget = other.transform.position - transform.position;
-            directionToTarget.y = 0f;
 
             attack = true; 
         }
@@ -85,7 +85,6 @@ public class ObjectMovement : MonoBehaviour
     {
         if (targetShip == other.gameObject)
         {
-            status = true;
             targetShip = null;
             m_ship.StopAttack();
         }

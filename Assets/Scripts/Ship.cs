@@ -9,6 +9,7 @@ public class Ship : MonoBehaviour
     public int range;
     public int speed;
     public int damage;
+    [HideInInspector]
     public SpawnManager spawnManager;
 
     // Start is called before the first frame update
@@ -38,7 +39,12 @@ public class Ship : MonoBehaviour
         // add Eugene's moveShip implementation later.
     }
 
-    bool attacking = false; 
+    bool attacking = false;
+
+    public bool GetAttacking()
+    {
+        return attacking; 
+    }
 
     public void StartAttack(GameObject target)
     {
@@ -55,9 +61,9 @@ public class Ship : MonoBehaviour
 
     private void Attack(GameObject target)
     {
-        GameObject spawnedLaser = Instantiate(laserPrefab, transform.position + transform.TransformDirection(Vector3.forward), transform.rotation);
+        GameObject spawnedLaser = Instantiate(laserPrefab, transform.position + transform.TransformDirection(Vector3.forward * 0.2f), transform.rotation);
         spawnedLaser.transform.Rotate(new Vector3(90f, 0, 0));
-        spawnedLaser.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 10);
+        spawnedLaser.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 0.5f);
 
         /*
         Ship script = target.GetComponent<Ship>();

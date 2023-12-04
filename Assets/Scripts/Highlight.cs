@@ -6,26 +6,35 @@ public class Highlight : MonoBehaviour
 {
     //we assign all the renderers here through the inspector
     [SerializeField]
-    private Renderer selectDisplay; 
+    private Renderer selectDisplay;
+
+    public bool selected = false;
+
+    VRSelect m_VRSelect; 
+
+    private void Start()
+    {
+        m_VRSelect = FindObjectOfType<VRSelect>(); 
+
+        ToggleHover(false); 
+    }
 
     public void ToggleHover(bool val)
     {
         selectDisplay.enabled = val;
-        if (!val)
-        {
-            ToggleHighlight(false); 
-        }
     }
 
     public void ToggleHighlight(bool val)
     {
         if (val)
-        {
+        { 
             selectDisplay.material.color = new Color(0.65f, 0.8f, 1f, 0.4f);
+            selected = true; 
         }
         else
         {
             selectDisplay.material.color = new Color(0.65f, 0.8f, 1f, 0f);
+            selected = false;
         }
     }
 }

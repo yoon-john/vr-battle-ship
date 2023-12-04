@@ -60,6 +60,7 @@ public class ShipSelector : MonoBehaviour
             {
                 rightOverlappedShips.Remove(other.transform.parent.gameObject);
             }
+            if (!other.transform.parent.GetComponent<Highlight>().selected) other.transform.parent.GetComponent<Highlight>().ToggleHover(false);
             //other.transform.parent.GetComponent<Highlight>().ToggleHover(false);
         }
     }

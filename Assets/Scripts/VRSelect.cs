@@ -9,7 +9,8 @@ public class VRSelect : MonoBehaviour
     public GameObject leftController;
     public GameObject rightController;
 
-    private GameObject selectedGO = null;
+    [HideInInspector]
+    public GameObject selectedGO = null;
 
     public string[] selectableTags;
     
@@ -34,6 +35,12 @@ public class VRSelect : MonoBehaviour
             // Check if click overlaps with friendly ship -> update info on what ship is selected
             if (ShipSelector.GetOverlapShip(rightSelect) != null)
             {
+                if (selectedGO != null && ShipSelector.GetOverlapShip(rightSelect) != selectedGO)
+                {
+                    selectedGO.GetComponent<Highlight>().ToggleHighlight(false);
+                    selectedGO.GetComponent<Highlight>().ToggleHover(false);
+                }
+
                 selectedGO = ShipSelector.GetOverlapShip(rightSelect);
                 selectedGO.GetComponent<Highlight>().ToggleHighlight(true); 
             }
