@@ -53,7 +53,7 @@ public class ObjectMovement : MonoBehaviour
         }
 
         Quaternion toRotation = Quaternion.LookRotation(direction.normalized);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * movementSpeed * 10f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * rotationSpeed * 10f);
 
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }

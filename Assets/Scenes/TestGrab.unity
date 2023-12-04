@@ -471,9 +471,9 @@ MonoBehaviour:
   selectableTags:
   - ship
   - enemy
-  leftControllerSelect: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
+  leftControllerSelect: {fileID: -3874852502222167442, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  rightControllerSelect: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+  rightControllerSelect: {fileID: -1068614494838458688, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
 --- !u!1 &778143243
 GameObject:
@@ -734,27 +734,37 @@ PrefabInstance:
     - target: {fileID: 481699097083126758, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: coordinate.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 481699097083126758, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: coordinate.z
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 481699097083126758, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481699097083126758, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.002
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.002
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.002
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
@@ -764,12 +774,12 @@ PrefabInstance:
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2651916277428311792, guid: 41f317f490d6e4c0a9b3522e77e10e9a,
         type: 3}

@@ -27,11 +27,30 @@ public class VRSelect : MonoBehaviour
     {
         if (leftControllerSelect.action.ReadValue<float>() != 0 || rightControllerSelect.action.ReadValue<float>() != 0)
         {
-            // Check if click overlaps with friendly ship
-            GameObject selectedGO = ShipSelector.GetOverlapShip(); 
-            if (selectedGO != null)
+            bool rightSelect;
+            if (leftControllerSelect.action.ReadValue<float>() != 0) rightSelect = false;
+            else rightSelect = true;
+
+            // Check if click overlaps with friendly ship -> update info on what ship is selected
+            if (ShipSelector.GetOverlapShip(rightSelect) != null)
             {
+                selectedGO = ShipSelector.GetOverlapShip(rightSelect);
                 selectedGO.GetComponent<Highlight>().ToggleHighlight(true); 
+            }
+            else // move the selected ship to the location of controller
+            {
+                Vector3 moveToPos;
+
+                if (leftControllerSelect.action.ReadValue<float>() != 0)
+                {
+                    moveToPos = leftController.transform.position; 
+                }
+                else 
+                {
+                    moveToPos = rightController.transform.position;
+                }
+
+                if (selectedGO != null) selectedGO.GetComponent<ObjectMovement>().coordinate = moveToPos; 
             }
         }
     }
