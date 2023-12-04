@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Bridge.unity
+    guid: 45665c6f380404b11950f2f317be70b1
+  - enabled: 1
+    path: Assets/Scenes/TestMovement.unity
+    guid: 8a0343cf863304a67b181e1aa8cfcb8a
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
@@ -14,19 +20,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestHand.unity
     guid: 8e2b98eb732404a578c3dfd3b06824a6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestGrab.unity
     guid: 66aecf29741a748fcbaaf184923e8302
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WinScene.unity
     guid: dba10c392bb524de09b5b5b3c1f1bef6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoseScene.unity
     guid: 9711972fd9be2438198a0f62b55c55bf
-  - enabled: 1
-    path: Assets/Scenes/Bridge.unity
-    guid: 45665c6f380404b11950f2f317be70b1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestSpawn.unity
     guid: b88c25c9a891a4350a1ae24b952cc68e
   m_configObjects:
