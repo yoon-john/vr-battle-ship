@@ -137,11 +137,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1.0
   preloadedAssets:
-<<<<<<< Updated upstream
-  - {fileID: 0}
-=======
   - {fileID: 11400000, guid: 30b2878c7fd604de081985a1cf8e4ade, type: 2}
->>>>>>> Stashed changes
   - {fileID: 749736109560297115, guid: fa91a8fdd661c4c80bbb836c4dd877c3, type: 2}
   - {fileID: 11400000, guid: 61268eae3150641168a0037805389dbe, type: 2}
   - {fileID: 7237088897483592473, guid: 050c1653ea09a4111ac0da415393d986, type: 2}
@@ -897,13 +893,7 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled:
-    Build: 0
-    Game Performance: 0
-    Legacy Analytics: 0
-    Purchasing: 0
-    UDP: 0
-    Unity Ads: 0
+  cloudServicesEnabled: {}
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -923,11 +913,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 3243dfaf-6dad-4de5-b336-28c44c8f165a
+  cloudProjectId: a9a1e038-bce4-494b-83e7-3d0573977277
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: XRProject
-  organizationId: tobetracer
+  organizationId: jaehaha1
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

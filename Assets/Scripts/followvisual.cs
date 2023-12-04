@@ -56,7 +56,7 @@ public class followvisual : MonoBehaviour
         if(hover.interactorObject is XRPokeInteractor) {
             isFollowing = false;
             freeze = false;
-            SceneManager.LoadScene("TestMovement");
+            SceneManager.LoadScene("Main_v1");
         }
      }
 
