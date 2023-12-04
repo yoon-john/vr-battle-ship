@@ -56,6 +56,11 @@ public class followvisual : MonoBehaviour
         if(hover.interactorObject is XRPokeInteractor) {
             isFollowing = false;
             freeze = false;
+
+            interactable.hoverEntered.RemoveAllListeners();
+            interactable.hoverExited.RemoveAllListeners();
+            interactable.selectEntered.RemoveAllListeners();
+
             SceneManager.LoadScene("Main_v1");
         }
      }
